@@ -143,7 +143,7 @@ const About = () => {
               My journey in tech has led me to develop several impactful projects, including{' '}
               <a href="https://github.com/kunal4419/FitFlow.git">FitFlow</a>, a fitness application with 30+ active users,{' '}
               <a href="https://github.com/kunal4419/Medix.git">Medix</a>, an Electronic Health Record System
-              and <a href="https://github.com/kunal4419/Kunal-s-Store-Rating.git">StoreMeter</a>, a role-based rating platform.
+              and <a href="https://github.com/kunal4419/StoreMeter.git">StoreMeter</a>, a role-based rating platform.
               Each project has taught me valuable lessons about user experience, security, and scalable architecture.
             </p>
 
