@@ -2,7 +2,7 @@
 date: '2'
 title: 'Medix - EHR System'
 cover: './demo.png'
-github: 'https://github.com/kunal4419/medix'
+github: 'https://github.com/kunal4419/Medix.git'
 tech:
   - Next.js
   - Tailwind CSS

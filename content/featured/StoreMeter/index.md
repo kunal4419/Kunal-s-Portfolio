@@ -2,7 +2,7 @@
 date: '3'
 title: 'StoreMeter'
 cover: './demo.png'
-github: 'https://github.com/kunal4419/storemeter'
+github: 'https://github.com/kunal4419/Kunal-s-Store-Rating.git'
 tech:
   - React
   - Node.js

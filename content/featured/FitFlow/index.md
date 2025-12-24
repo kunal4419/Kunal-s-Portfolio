@@ -2,7 +2,7 @@
 date: '1'
 title: 'FitFlow'
 cover: './demo.png'
-github: 'https://github.com/kunal4419/fitflow'
+github: 'https://github.com/kunal4419/FitFlow.git'
 external: 'https://fitflowbykunal.netlify.app'
 tech:
   - React
