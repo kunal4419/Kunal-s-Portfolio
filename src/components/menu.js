@@ -265,10 +265,6 @@ const Menu = () => {
                 ))}
               </ol>
             )}
-
-            <a href="https://drive.google.com/file/d/1FX4-XFchX5yGQ2skzFeAgC29QgFAxYc9/view?usp=drivesdk" className="resume-link" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
           </nav>
         </StyledSidebar>
       </div>
