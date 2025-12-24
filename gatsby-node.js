@@ -1,7 +1,7 @@
 /**
  * Implement Gatsby's Node APIs in this file.
  *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
 const path = require('path');
@@ -14,7 +14,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 };
 
 // Webpack configuration
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html' || stage === 'develop-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /miniraf/,
+            use: loaders.null(),
+          },
+          {
+            test: /framer-motion/,
+            use: loaders.null(),
+          },
+          {
+            test: /scrollreveal/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+
   actions.setWebpackConfig({
     resolve: {
       alias: {
