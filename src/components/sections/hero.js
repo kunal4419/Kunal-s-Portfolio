@@ -73,11 +73,20 @@ const Hero = () => {
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="mailto:patelkunal4419@gmail.com">
-      Get In Touch
-    </a>
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <a
+        className="email-link"
+        href="mailto:patelkunal4419@gmail.com">
+        Get In Touch
+      </a>
+      <a
+        className="email-link"
+        href="https://drive.google.com/file/d/1FX4-XFchX5yGQ2skzFeAgC29QgFAxYc9/view?usp=drivesdk"
+        target="_blank"
+        rel="noopener noreferrer">
+        Resume
+      </a>
+    </div>
   );
 
   const items = [one, two, three, four, five];
