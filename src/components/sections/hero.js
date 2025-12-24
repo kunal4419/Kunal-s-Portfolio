@@ -81,7 +81,7 @@ const Hero = () => {
       </a>
       <a
         className="email-link"
-        href="https://drive.google.com/file/d/1FX4-XFchX5yGQ2skzFeAgC29QgFAxYc9/view?usp=drivesdk"
+        href="/Kunal_Patel_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer">
         Resume
