@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
@@ -33,6 +33,7 @@ const StyledHeroSection = styled.section`
     margin-top: 5px;
     color: var(--slate);
     line-height: 0.9;
+    font-size: clamp(32px, 6vw, 64px);
   }
 
   p {
@@ -49,26 +50,68 @@ const StyledHeroSection = styled.section`
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const typedRef = useRef(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      return;
+      return undefined;
     }
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    if (prefersReducedMotion || !isMounted) {
+      return undefined;
+    }
+
+    let typedInstance;
+
+    const initTyped = async () => {
+      const Typed = (await import('typed.js')).default;
+
+      if (typedRef.current) {
+        typedInstance = new Typed(typedRef.current, {
+          strings: [
+            'I build scalable web applications.',
+            'I build full-stack products.',
+            'I build user-centric experiences.',
+            'I build modern web and mobile apps.',
+          ],
+          typeSpeed: 50,
+          backSpeed: 30,
+          backDelay: 1500,
+          loop: true,
+        });
+      }
+    };
+
+    initTyped();
+
+    return () => {
+      if (typedInstance) {
+        typedInstance.destroy();
+      }
+    };
+  }, [prefersReducedMotion, isMounted]);
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Kunal Patel.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const three = prefersReducedMotion ? (
+    <h3 className="big-heading typed-heading">I build things for the web.</h3>
+  ) : (
+    <h3 className="big-heading typed-heading" aria-live="polite">
+      <span ref={typedRef} />
+    </h3>
+  );
   const four = (
     <>
       <p>
         I’m a computer science student and aspiring {' '}
-        <a target="_blank" rel="noreferrer">
+        <a href="#about" rel="noreferrer">
           software developer
-        </a> with a strong interest in full-stack web development and cloud technologies. I focus on building scalable, user-centric applications and continuously improving my problem-solving and engineering skills through hands-on projects.
+        </a>{' '}with a strong interest in full-stack web development and cloud technologies. I focus on building scalable, user-centric applications and continuously improving my problem-solving and engineering skills through hands-on projects.
       </p>
     </>
   );
